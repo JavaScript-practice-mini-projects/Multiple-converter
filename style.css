@@ -1,0 +1,64 @@
+
+/* google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #dddeee;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+}
+.container{
+    width: 700px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0,0, 0,0.2);
+}
+.container h2{
+    text-align: center;
+}
+.category-convert-area{
+    margin: 2rem 0;
+
+}
+.category-convert-area h4{
+    margin: 0.5rem 0;
+}
+.category-convert-area > select{
+    width: 100%;
+}
+.select-category{
+    padding: 0.4rem 0.8rem;
+}
+
+.converter-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+   
+}
+.converter-from {
+    width: 48%;
+}
+.converter-from h5{
+    margin: 0.3rem 0;
+}
+.converter-from input{
+    padding: 0.4rem 0.8rem;
+}
+.select-input{
+    width: 100%;
+}
+.select-input > select, .select-input > input{
+    width: 49%;
+}
