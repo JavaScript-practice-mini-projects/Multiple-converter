@@ -52,36 +52,18 @@ function main(){
 
     const converterKeys  = Object.keys(converter)
     removeAllChild(selectCategory);
-  
     converterKeys.forEach((item) => {
         addOption(selectCategory, {value: item, text: converter[item].name})
     
     });
     
-    
+    // set default category units
+    updateCategoryValue(selectCategory, leftCategory, rightCategory)
     
     selectCategory.addEventListener('change', function(){
-        const selectCategoryValue = selectCategory.value
-        const units = converter[selectCategoryValue].units
-        // handle left site 
-        removeAllChild(leftCategory)
-        const unitsKeys = Object.keys(units)
-        unitsKeys.forEach((item) => {
-            addOption(leftCategory, {value: item, text: units[item]})
-        })
+        updateCategoryValue(selectCategory, leftCategory, rightCategory)
 
-        // handle right site
-        removeAllChild(rightCategory)
-        const unitsKeysLeft = Object.keys(units)
-        unitsKeysLeft.forEach((item) => {
-            addOption(rightCategory, {value: item, text: units[item]})
-        })
-
-        rightCategory.getElementsByTagName('option')[1].selected = 'selected'
-
-        })
-    
-
+    })
 }
 
 // event handler
@@ -104,3 +86,24 @@ function removeAllChild(parent){
 }
 
 
+function updateCategoryValue(selectCategory, leftCategory, rightCategory){
+    const selectCategoryValue = selectCategory.value
+    const units = converter[selectCategoryValue].units
+
+        // handle left site 
+    removeAllChild(leftCategory)
+    const option = Object.keys(units)
+    option.forEach((item) => {
+        addOption(leftCategory, {value: item, text: units[item]})
+    })
+
+    // handle right site
+    removeAllChild(rightCategory)
+    option.forEach((item) => {
+        addOption(rightCategory, {value: item, text: units[item]})
+    })
+
+    // change default option of right select
+    rightCategory.getElementsByTagName('option')[1].selected = 'selected'
+
+    }
