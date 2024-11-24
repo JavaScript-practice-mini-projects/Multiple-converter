@@ -44,6 +44,8 @@ const converter = {
     }
 }
 
+let leftCategoryLastValue = ''
+let rightCategoryLastValue = ''
 
 function main(){
     const selectCategory = document.getElementById('select-category')
@@ -64,6 +66,26 @@ function main(){
         updateCategoryValue(selectCategory, leftCategory, rightCategory)
 
     })
+
+    leftCategory.addEventListener('change', function(event) {
+        if(event.target.value === rightCategory.value){
+            const options = rightCategory.getElementsByTagName('option')
+            for(let i = 0; i < options.length; i++){
+                if(leftCategoryLastValue === options[i].value){
+                    options[i].selected = true;
+                    rightCategoryLastValue = options[i].value
+                    break;
+                }
+            }
+        }
+        leftCategoryLastValue = event.target.value;
+    })
+
+    rightCategory.addEventListener('change', function(event) {
+       
+
+    })
+   
 }
 
 // event handler
@@ -96,6 +118,7 @@ function updateCategoryValue(selectCategory, leftCategory, rightCategory){
     option.forEach((item) => {
         addOption(leftCategory, {value: item, text: units[item]})
     })
+    leftCategoryLastValue = leftCategory.value
 
     // handle right site
     removeAllChild(rightCategory)
@@ -104,6 +127,6 @@ function updateCategoryValue(selectCategory, leftCategory, rightCategory){
     })
 
     // change default option of right select
-    rightCategory.getElementsByTagName('option')[1].selected = 'selected'
-
+    rightCategory.getElementsByTagName('option')[1].selected = true;
+    rightCategoryLastValue = leftCategory.value
     }
