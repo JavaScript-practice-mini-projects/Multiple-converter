@@ -45,7 +45,6 @@ body{
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
-   
 }
 .converter-from {
     width: 48%;
@@ -61,4 +60,13 @@ body{
 }
 .select-input > select, .select-input > input{
     width: 49%;
+}
+.formula-area{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+#formula-show{
+    font-size: 14px;
+    margin-left: 5px;
 }
